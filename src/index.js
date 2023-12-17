@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { Provider } from 'react-redux'
+import store from './store'
 import * as serviceWorker from "./serviceWorker";
 
 import "./tailwind.css";
@@ -9,13 +11,13 @@ import "./tailwind.css";
 const render = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </React.StrictMode>,
     document.getElementById("root")
   );
 };
-
-render();
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
